@@ -18,8 +18,8 @@ export function ViewCanvas() {
           left: "50%",
           transform: "translateX(-50%)",
           overflow: "hidden",
-          pointerEvents: "none",
-          zIndex: 30,
+          pointerEvents: "none", // wrapper
+          zIndex: 0, // kept low
         }}
         camera={{ position: [-3, 1, 10], fov: 60 }}
         onCreated={({ scene }) => console.log("Canvas ready")}
