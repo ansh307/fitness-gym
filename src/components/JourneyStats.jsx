@@ -5,21 +5,10 @@ import gsap from "gsap";
 import { useRef } from "react";
 
 export default function JourneyStats() {
-  const blob1Ref = useRef(null);
   const sectionRef = useRef(null);
   const numberRefs = useRef([]);
 
   useGSAP(() => {
-    // Floating blob animation
-    gsap.to(blob1Ref.current, {
-      x: -120,
-      y: 100,
-      duration: 12,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
-
     // Timeline with scroll trigger
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -63,16 +52,8 @@ export default function JourneyStats() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center bg-neutral-950 text-white overflow-hidden"
+      className="relative min-h-screen flex items-center  text-white overflow-hidden z-20 "
     >
-      {/* Background blob */}
-      {/* <div className="absolute inset-0 z-20">
-        <div
-          ref={blob1Ref}
-          className="absolute left-1/4 w-[600px] h-[600px] rounded-full bg-orange-500/25 opacity-40 blur-[200px]"
-        />
-      </div> */}
-
       {/* Right Content */}
       <div className="ml-auto w-full md:w-4/6 px-10 md:px-20">
         {/* Heading */}

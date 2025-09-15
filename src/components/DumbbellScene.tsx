@@ -21,14 +21,14 @@ const DumbbellScene = () => {
       dumbbellRef.current.position,
       { x: -10, y: 2, z: -8 },
       {
-        x: -10,
-        y: -4,
+        x: -11,
+        y: -2,
         z: -10,
         ease: "sine.inOut",
         scrollTrigger: {
           trigger: ".hero-div",
           start: "top top",
-          end: "bottom top",
+          end: "bottom 20%",
           scrub: 1,
           immediateRender: false,
           invalidateOnRefresh: true,
@@ -47,7 +47,7 @@ const DumbbellScene = () => {
         scrollTrigger: {
           trigger: ".hero-div",
           start: "top top",
-          end: "bottom top",
+          end: "bottom 20%",
           scrub: 1,
           immediateRender: false,
           invalidateOnRefresh: true,
@@ -58,20 +58,19 @@ const DumbbellScene = () => {
     // 🎯 SERVICES section animation (smooth continuation after hero)
     gsap.fromTo(
       dumbbellRef.current.position,
-      { x: -10, y: -4, z: -10 }, // end of hero
+      { x: -11, y: -2, z: -10 }, // end of hero
       {
         x: 4,
-        y: -2,
+        y: -4,
         z: -8,
         ease: "sine.inOut",
         scrollTrigger: {
           trigger: ".services-section",
           start: "top bottom", // starts animating as services enters
-          end: "50% top", // ends when services leaves viewport
+          end: "50% 50%", // ends when services leaves viewport
           scrub: 1,
           immediateRender: false,
           invalidateOnRefresh: true,
-          markers: true,
         },
       }
     );
@@ -87,7 +86,7 @@ const DumbbellScene = () => {
         scrollTrigger: {
           trigger: ".services-section",
           start: "top bottom",
-          end: "bottom top",
+          end: "50% 50%",
           scrub: 1,
           immediateRender: false,
           invalidateOnRefresh: true,

@@ -99,7 +99,7 @@ const Hero = () => {
   return (
     <section ref={heroRef} className="relative">
       {/* 🔥 Moving gradient patches */}
-      <div className="absolute inset-0 z-10">
+      <div className="absolute inset-0 z-10 overflow-hidden">
         <div
           ref={blob1Ref}
           className="absolute top-96 left-1/4 w-[500px] h-[500px] rounded-full bg-orange-500/15 opacity-30 blur-[200px]"

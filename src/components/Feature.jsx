@@ -1,15 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ParallaxImage from "./ParallexImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Feature = ({
   alignment = "left",
   imageSrc,
+  bgSrc,
   heading,
   paragraph,
   bg = "bg-neutral-950",
@@ -61,17 +62,7 @@ const Feature = ({
       }`}
     >
       {/* Image Section */}
-      <div ref={imageRef} className="flex-1 flex justify-center relative group">
-        <div className="w-3/4 h-80 rounded-2xl overflow-hidden shadow-xl border border-orange-500/30 group-hover:border-orange-500/60 transition">
-          <Image
-            src={imageSrc}
-            alt={heading}
-            width={800}
-            height={500}
-            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      </div>
+      <ParallaxImage imageSrc={imageSrc} bgSrc={bgSrc} heading={heading} />
 
       {/* Text Section */}
       <div ref={textRef} className="flex-1 text-center md:text-left">

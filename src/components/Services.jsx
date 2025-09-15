@@ -35,7 +35,7 @@ const Services = () => {
   return (
     <section
       ref={sectionRef}
-      className="services-section relative flex flex-col items-center justify-center min-h-screen px-6 py-28 bg-neutral-950 text-white"
+      className="services-section relative flex flex-col items-center justify-center min-h-screen px-6 py-28  text-white z-20"
     >
       {/* 🔥 Heading */}
       <h2 className="services-heading text-4xl md:text-6xl font-extrabold  text-center tracking-tight">
