@@ -1,17 +1,54 @@
 "use client";
 
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Services = () => {
+  const sectionRef = useRef(null);
+  const serviceRefs = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate each service one by one on scroll
+      serviceRefs.current.forEach((service) => {
+        gsap.from(service, {
+          y: 80,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: service,
+            start: "top 80%", // when service enters viewport
+            end: "bottom 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="services-section relative flex flex-col items-center justify-center min-h-screen px-6 py-28 bg-neutral-950 text-white">
+    <section
+      ref={sectionRef}
+      className="services-section relative flex flex-col items-center justify-center min-h-screen px-6 py-28 bg-neutral-950 text-white"
+    >
       {/* 🔥 Heading */}
-      <h2 className="services-heading text-4xl md:text-6xl font-extrabold mb-28 text-center tracking-tight">
+      <h2 className="services-heading text-4xl md:text-6xl font-extrabold  text-center tracking-tight">
         Our <span className="text-orange-500">Services</span>
       </h2>
 
       {/* 📌 Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-40 gap-x-72 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-32 gap-x-72 max-w-6xl w-full">
         {/* Top-left */}
-        <div className="flex flex-col items-start justify-center space-y-4 w-7/12">
+        <div
+          ref={(el) => (serviceRefs.current[0] = el)}
+          className="flex flex-col items-start justify-center space-y-4 w-7/12"
+        >
           <h3 className="text-2xl font-semibold text-orange-500">
             Personal Training
           </h3>
@@ -22,7 +59,10 @@ const Services = () => {
         </div>
 
         {/* Top-right */}
-        <div className="flex flex-col items-end justify-center space-y-4 text-right ml-40">
+        <div
+          ref={(el) => (serviceRefs.current[1] = el)}
+          className="flex flex-col justify-center space-y-4 ml-40"
+        >
           <h3 className="text-2xl font-semibold text-orange-500">
             Group Classes
           </h3>
@@ -33,7 +73,10 @@ const Services = () => {
         </div>
 
         {/* Bottom-left */}
-        <div className="flex flex-col items-start justify-center space-y-4 mt-10 w-7/12">
+        <div
+          ref={(el) => (serviceRefs.current[2] = el)}
+          className="flex flex-col items-start justify-center space-y-4 mt-10 w-7/12"
+        >
           <h3 className="text-2xl font-semibold text-orange-500">
             Nutrition Plans
           </h3>
@@ -44,7 +87,10 @@ const Services = () => {
         </div>
 
         {/* Bottom-right */}
-        <div className="flex flex-col items-end justify-center space-y-4 text-right mt-10 ml-40">
+        <div
+          ref={(el) => (serviceRefs.current[3] = el)}
+          className="flex flex-col justify-center space-y-4 mt-10 ml-40"
+        >
           <h3 className="text-2xl font-semibold text-orange-500">
             Online Coaching
           </h3>

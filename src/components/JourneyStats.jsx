@@ -66,12 +66,12 @@ export default function JourneyStats() {
       className="relative min-h-screen flex items-center bg-neutral-950 text-white overflow-hidden"
     >
       {/* Background blob */}
-      <div className="absolute inset-0 -z-10">
+      {/* <div className="absolute inset-0 z-20">
         <div
           ref={blob1Ref}
           className="absolute left-1/4 w-[600px] h-[600px] rounded-full bg-orange-500/25 opacity-40 blur-[200px]"
         />
-      </div>
+      </div> */}
 
       {/* Right Content */}
       <div className="ml-auto w-full md:w-4/6 px-10 md:px-20">

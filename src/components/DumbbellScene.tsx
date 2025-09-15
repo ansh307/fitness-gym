@@ -16,7 +16,7 @@ const DumbbellScene = () => {
   useGSAP(() => {
     if (!dumbbellRef.current) return;
 
-    // Hero section animation (intro float)
+    // 🎯 HERO section animation (intro float)
     gsap.fromTo(
       dumbbellRef.current.position,
       { x: -10, y: 2, z: -8 },
@@ -29,8 +29,9 @@ const DumbbellScene = () => {
           trigger: ".hero-div",
           start: "top top",
           end: "bottom top",
-          scrub: 1, // smoother scrub
+          scrub: 1,
           immediateRender: false,
+          invalidateOnRefresh: true,
         },
       }
     );
@@ -49,33 +50,35 @@ const DumbbellScene = () => {
           end: "bottom top",
           scrub: 1,
           immediateRender: false,
+          invalidateOnRefresh: true,
         },
       }
     );
 
-    // Services section animation (settling position)
-    // Services section animation (continuation, not reset)
+    // 🎯 SERVICES section animation (smooth continuation after hero)
     gsap.fromTo(
       dumbbellRef.current.position,
-      { x: -10, y: -4, z: -10 }, // <-- where hero animation left off
+      { x: -10, y: -4, z: -10 }, // end of hero
       {
         x: 4,
-        y: -6,
+        y: -2,
         z: -8,
         ease: "sine.inOut",
         scrollTrigger: {
           trigger: ".services-section",
-          start: "top 80%",
-          end: "30% 20%",
+          start: "top bottom", // starts animating as services enters
+          end: "50% top", // ends when services leaves viewport
           scrub: 1,
           immediateRender: false,
+          invalidateOnRefresh: true,
+          markers: true,
         },
       }
     );
 
     gsap.fromTo(
       dumbbellRef.current.rotation,
-      { x: Math.PI / 2 - 1, y: -2.5, z: 1.5 }, // <-- end values from hero
+      { x: Math.PI / 2 - 1, y: -2.5, z: 1.5 }, // end of hero
       {
         x: -0.5,
         y: -1,
@@ -83,10 +86,11 @@ const DumbbellScene = () => {
         ease: "sine.inOut",
         scrollTrigger: {
           trigger: ".services-section",
-          start: "top 80%",
-          end: "30% 20%",
+          start: "top bottom",
+          end: "bottom top",
           scrub: 1,
           immediateRender: false,
+          invalidateOnRefresh: true,
         },
       }
     );

@@ -14,6 +14,8 @@ const Hero = () => {
   const heroRef = useRef(null);
   const blob1Ref = useRef(null);
   const blob2Ref = useRef(null);
+  const blob3Ref = useRef(null);
+  const blob4Ref = useRef(null);
 
   useGSAP(() => {
     // Animate first blob
@@ -31,6 +33,24 @@ const Hero = () => {
       x: -120,
       y: -100,
       duration: 10,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+
+    gsap.to(blob3Ref.current, {
+      x: -120,
+      y: 100,
+      duration: 12,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+
+    gsap.to(blob4Ref.current, {
+      x: -120,
+      y: 100,
+      duration: 12,
       repeat: -1,
       yoyo: true,
       ease: "sine.inOut",
@@ -79,14 +99,24 @@ const Hero = () => {
   return (
     <section ref={heroRef} className="relative">
       {/* 🔥 Moving gradient patches */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 z-10">
         <div
           ref={blob1Ref}
-          className="absolute top-96 left-1/4 w-[500px] h-[500px] rounded-full bg-orange-500/50 opacity-30 blur-[200px]"
+          className="absolute top-96 left-1/4 w-[500px] h-[500px] rounded-full bg-orange-500/15 opacity-30 blur-[200px]"
         />
         <div
           ref={blob2Ref}
-          className="absolute bottom-10 right-1/4 w-[400px] h-[400px] rounded-full bg-orange-400/50 opacity-20 blur-[150px]"
+          className="absolute bottom-10 right-1/4 w-[400px] h-[400px] rounded-full bg-orange-400/15 opacity-20 blur-[150px]"
+        />
+
+        <div
+          ref={blob3Ref}
+          className="absolute top-3/5 -left-40 w-[600px] h-[600px] rounded-full bg-orange-500/10 opacity-40 blur-[200px]"
+        />
+
+        <div
+          ref={blob4Ref}
+          className="absolute top-2/5 -right-40 w-[600px] h-[600px] rounded-full bg-orange-400/10 opacity-40 blur-[200px]"
         />
       </div>
 
