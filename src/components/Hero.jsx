@@ -64,13 +64,29 @@ const Hero = () => {
           className="absolute bottom-10 right-1/4 w-[400px] h-[400px] rounded-full bg-orange-400/50 opacity-20 blur-[150px]"
         />
       </div>
+
       <View className="hero-scene pointer-events-none sticky top-20 z-20 -mt-[100vh] hidden h-screen w-full md:block">
         <DumbbellScene />
       </View>
-      <div className="hero-div flex flex-col items-center justify-end bg-transparent  h-screen">
-        <h1 className="hero-text text-6xl md:text-7xl font-bold z-10 text-center leading-tight mb-24">
-          Push Your Limits with <br /> Fitness Gym
+
+      {/* 📌 Hero Content */}
+      <div className="hero-div flex flex-col items-center justify-center h-screen px-6 text-center">
+        <h1 className="hero-text text-5xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight">
+          Push Your Limits <br /> with{" "}
+          <span className="text-orange-500">Fitness Gym</span>
         </h1>
+        <p className="text-lg md:text-xl text-neutral-300 max-w-2xl mb-8">
+          Transform your strength, endurance, and confidence with expert-guided
+          programs designed just for you.
+        </p>
+        <div className="flex gap-4">
+          <button className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-xl shadow-lg hover:bg-orange-600 transition">
+            Get Started
+          </button>
+          <button className="px-6 py-3 border border-neutral-600 text-neutral-300 font-semibold rounded-xl hover:bg-neutral-800 transition">
+            Learn More
+          </button>
+        </div>
       </div>
 
       <JourneyStats />

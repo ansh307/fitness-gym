@@ -10,36 +10,57 @@ const Navbar = () => {
   useEffect(() => {
     const controlNavbar = () => {
       if (window.scrollY > lastScrollY) {
-        // scrolling down → hide
-        setVisible(false);
+        setVisible(false); // hide on scroll down
       } else {
-        // scrolling up → show
-        setVisible(true);
+        setVisible(true); // show on scroll up
       }
       setLastScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
+    return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
 
   return (
     <nav
-      className={`fixed top-0 w-full flex items-center justify-between px-20 py-4
+      className={`fixed top-0 w-full flex items-center justify-between px-8 md:px-20 py-4
+        bg-neutral-950/70 backdrop-blur-lg border-b border-white/10
         text-white z-50 transition-transform duration-300
         ${visible ? "translate-y-0" : "-translate-y-full"}
       `}
     >
-      {/* left - Logo Text */}
-      <div className="text-xl font-bold tracking-wide">FITNESS GYM</div>
+      {/* 🔥 Logo */}
+      <div className="text-2xl font-extrabold tracking-wide">
+        <span className="text-orange-500">FITNESS</span> GYM
+      </div>
 
-      {/* right - Contact Button */}
+      {/* 📌 Navigation Links */}
+      {/* <div className="hidden md:flex gap-8 font-medium text-neutral-300">
+        <Link
+          href="/"
+          className="hover:text-orange-500 transition-colors duration-200"
+        >
+          Home
+        </Link>
+        <Link
+          href="/programs"
+          className="hover:text-orange-500 transition-colors duration-200"
+        >
+          Programs
+        </Link>
+        <Link
+          href="/about"
+          className="hover:text-orange-500 transition-colors duration-200"
+        >
+          About
+        </Link>
+      </div> */}
+
+      {/* 🎯 Contact Button */}
       <Link
         href="/contact"
-        className="px-4 py-2 border border-white/30 rounded-lg text-white
-        hover:bg-white/10 hover:text-gray-200 transition"
+        className="px-5 py-2 bg-orange-500 text-white font-semibold rounded-lg shadow-lg
+        hover:bg-orange-600 transition"
       >
         Contact Us
       </Link>

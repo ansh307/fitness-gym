@@ -4,7 +4,7 @@ import clsx from "clsx";
 const features = [
   {
     alignment: "left",
-    bg: "bg-white",
+    bg: "bg-neutral-900", // dark gray
     imageSrc: "/image.png",
     heading: "Strong Foundation",
     paragraph:
@@ -12,7 +12,7 @@ const features = [
   },
   {
     alignment: "right",
-    bg: "bg-neutral-950",
+    bg: "bg-neutral-950", // darker section
     imageSrc: "/image.png",
     heading: "Peak Performance",
     paragraph:
@@ -20,7 +20,7 @@ const features = [
   },
   {
     alignment: "left",
-    bg: "bg-white",
+    bg: "bg-neutral-900",
     imageSrc: "/image.png",
     heading: "Injury Prevention",
     paragraph:
@@ -43,8 +43,7 @@ const FeaturedParallax = () => {
         <div
           key={i}
           className={clsx(
-            "sticky top-[calc(var(--index)*4rem)] z-10", // stacking effect
-            " shadow-lg rounded-2xl"
+            "sticky top-[calc(var(--index)*4rem)] z-10 rounded-t-2xl"
           )}
           style={{ "--index": i }}
         >
