@@ -35,19 +35,19 @@ const Services = () => {
   return (
     <section
       ref={sectionRef}
-      className="services-section relative flex flex-col items-center justify-center min-h-screen px-6 py-28  text-white z-20"
+      className="services-section relative flex flex-col items-center justify-center min-h-screen px-6 py-28 text-white z-20"
     >
       {/* 🔥 Heading */}
-      <h2 className="services-heading text-4xl md:text-6xl font-extrabold  text-center tracking-tight">
+      <h2 className="services-heading text-4xl md:text-6xl font-extrabold text-center tracking-tight mb-16">
         Our <span className="text-orange-500">Services</span>
       </h2>
 
       {/* 📌 Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-32 gap-x-72 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-y-32 md:gap-x-20 max-w-6xl w-full">
         {/* Top-left */}
         <div
           ref={(el) => (serviceRefs.current[0] = el)}
-          className="flex flex-col items-start justify-center space-y-4 w-7/12"
+          className="flex flex-col items-start justify-center space-y-4 w-full md:w-7/12"
         >
           <h3 className="text-2xl font-semibold text-orange-500">
             Personal Training
@@ -61,7 +61,7 @@ const Services = () => {
         {/* Top-right */}
         <div
           ref={(el) => (serviceRefs.current[1] = el)}
-          className="flex flex-col justify-center space-y-4 ml-40"
+          className="flex flex-col justify-center space-y-4 w-full md:ml-40"
         >
           <h3 className="text-2xl font-semibold text-orange-500">
             Group Classes
@@ -75,7 +75,7 @@ const Services = () => {
         {/* Bottom-left */}
         <div
           ref={(el) => (serviceRefs.current[2] = el)}
-          className="flex flex-col items-start justify-center space-y-4 mt-10 w-7/12"
+          className="flex flex-col items-start justify-center space-y-4 w-full md:w-7/12 mt-10 md:mt-0"
         >
           <h3 className="text-2xl font-semibold text-orange-500">
             Nutrition Plans
@@ -89,7 +89,7 @@ const Services = () => {
         {/* Bottom-right */}
         <div
           ref={(el) => (serviceRefs.current[3] = el)}
-          className="flex flex-col justify-center space-y-4 mt-10 ml-40"
+          className="flex flex-col justify-center space-y-4 w-full md:ml-40 mt-10 md:mt-0"
         >
           <h3 className="text-2xl font-semibold text-orange-500">
             Online Coaching

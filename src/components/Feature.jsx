@@ -57,19 +57,21 @@ const Feature = ({
 
   return (
     <section
-      className={`flex flex-col md:flex-row items-center gap-16 py-24 px-8 md:px-20 ${bg} ${
+      className={`flex flex-col md:flex-row items-center gap-12 md:gap-16 py-16 md:py-24 px-6 md:px-20 ${bg} ${
         alignment === "right" ? "md:flex-row-reverse" : "md:flex-row"
       }`}
     >
       {/* Image Section */}
-      <ParallaxImage imageSrc={imageSrc} bgSrc={bgSrc} heading={heading} />
+      <div ref={imageRef} className="flex-1 w-full max-w-md md:max-w-none">
+        <ParallaxImage imageSrc={imageSrc} bgSrc={bgSrc} heading={heading} />
+      </div>
 
       {/* Text Section */}
       <div ref={textRef} className="flex-1 text-center md:text-left">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
           {heading}
         </h2>
-        <p className="text-lg text-gray-300 leading-relaxed max-w-lg mx-auto md:mx-0">
+        <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-lg mx-auto md:mx-0">
           {paragraph}
         </p>
       </div>

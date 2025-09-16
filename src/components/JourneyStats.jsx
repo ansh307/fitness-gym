@@ -52,23 +52,23 @@ export default function JourneyStats() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center  text-white overflow-hidden z-20 "
+      className="relative min-h-screen flex items-center text-white overflow-hidden z-20"
     >
       {/* Right Content */}
-      <div className="ml-auto w-full md:w-4/6 px-10 md:px-20">
+      <div className="ml-auto w-full md:w-4/6 px-6 md:px-20">
         {/* Heading */}
-        <h2 className="journey-heading text-3xl md:text-6xl font-extrabold tracking-tight text-center md:text-left mb-20">
+        <h2 className="journey-heading text-3xl md:text-6xl font-extrabold tracking-tight text-center md:text-left mb-12 md:mb-20">
           Your Fitness Journey Starts{" "}
           <span className="text-orange-400">Here</span>
         </h2>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 text-center md:text-left">
           <div className="hover:scale-105 transition-transform">
             <p
               ref={(el) => (numberRefs.current[0] = el)}
               data-value="12"
-              className="text-6xl font-bold text-orange-400"
+              className="text-5xl md:text-6xl font-bold text-orange-400"
             >
               0+
             </p>
@@ -79,7 +79,7 @@ export default function JourneyStats() {
             <p
               ref={(el) => (numberRefs.current[1] = el)}
               data-value="27"
-              className="text-6xl font-bold text-orange-400"
+              className="text-5xl md:text-6xl font-bold text-orange-400"
             >
               0+
             </p>
@@ -90,7 +90,7 @@ export default function JourneyStats() {
             <p
               ref={(el) => (numberRefs.current[2] = el)}
               data-value="60"
-              className="text-6xl font-bold text-orange-400"
+              className="text-5xl md:text-6xl font-bold text-orange-400"
             >
               0+
             </p>
@@ -101,7 +101,7 @@ export default function JourneyStats() {
             <p
               ref={(el) => (numberRefs.current[3] = el)}
               data-value="50"
-              className="text-6xl font-bold text-orange-400"
+              className="text-5xl md:text-6xl font-bold text-orange-400"
             >
               0+
             </p>

@@ -1,20 +1,24 @@
 "use client";
 
 import { Instances, Dumbbell } from "@/components/Dumbbell";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Group } from "three";
 
+import { useIsMobile } from "@/hooks/useIsMobile";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const DumbbellScene = () => {
   const dumbbellRef = useRef<Group>(null);
 
+  const isMobile = useIsMobile();
+
   useGSAP(() => {
-    if (!dumbbellRef.current) return;
+    if (!dumbbellRef.current || isMobile) return;
 
     // 🎯 HERO section animation (intro float)
     gsap.fromTo(
@@ -97,7 +101,7 @@ const DumbbellScene = () => {
 
   return (
     <group>
-      <OrbitControls />
+      {/* <OrbitControls /> */}
       <Environment files={"/dumbbell/hdr/warehouse-256.hdr"} />
       <ambientLight intensity={0.4} />
       <directionalLight position={[5, 10, 10]} intensity={1} />
